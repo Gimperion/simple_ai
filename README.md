@@ -1,6 +1,6 @@
 # SimpleAi
 
-**TODO: Add description**
+Simple exercise to glue together a series of modules for interacting with third party AI services.
 
 ## Installation
 
