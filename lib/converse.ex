@@ -13,6 +13,13 @@ defmodule Converse do
   end
 
   @doc """
+  API key not in environment variable, so it must be passed in.
+  """
+  def get_client(api_key) do
+    Anthropix.init(api_key)
+  end
+
+  @doc """
   Passes payoad to API.
 
   ## Examples
@@ -25,5 +32,16 @@ defmodule Converse do
   def run_convo(payload) do
     get_client()
     |> Anthropix.chat(payload)
+  end
+
+  @doc """
+  Extracts the text from the response.
+  """
+  def response_text(response) do
+    response
+    |> elem(1)
+    |> Map.get("content")
+    |> List.first()
+    |> Map.get("text")
   end
 end
